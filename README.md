@@ -23,32 +23,36 @@ Things you may want to cover:
 
 * ...
 
-users
-nickname ニックネーム
-mail メール
-pasword パスワード
-birthday 生年月日
-name 名前
 
 
-items 
-image 画像
-name 商品名
-text 説明
-category カテゴリー
-condition 状態
-delivery 配送料金
-address 発送元
-date 発送日時
-price 値段
-seller 出品者
 
-purchases 
-post 郵便番号
-prefecture 県
-region 市区町村
-address 番地
-building 建物
-number 電話番号
-buyer 購入者
+## users
 
+|nickname|string|null: false|
+|mail    |string|null: false|
+|password|string|null: false|
+|birthday|date  |null: false|
+|name    |string|null: false|
+
+## items 
+
+|image    |string    |null: false                      |
+|name     |string    |null: false                      |
+|text     |text      |null: false                      |
+|category |string    |null: false                      |
+|condition|string    |null: false                      |
+|delivery |decimal   |null: false                      |
+|address  |string    |null: false                      |
+|date     |datetime  |null: false                      |
+|price    |decimal   |null: false                      |
+|seller   |references|foreign_key: { to_table: :users }|
+
+## purchases
+
+|post      |string    |null: false                      |
+|prefecture|string    |null: false                      |
+|region    |string    |null: false                      |
+|address   |string    |null: false                      |
+|building  |string    |null: false                      |
+|number    |string    |null: false                      |
+|buyer     |references|foreign_key: { to_table: :users }|
