@@ -37,6 +37,11 @@ Things you may want to cover:
 |c_first_name      |string    |null: false      |
 |c_last_name       |string    |null: false      |
 
+### Association
+
+has_many :items
+belongs_to :informations
+
 ## items 
 
 |items_name        |string    |null: false      |
@@ -49,14 +54,28 @@ Things you may want to cover:
 |price             |integer   |null: false      |
 |user              |references|foreign_key: true|
 
+### Association
+
+belongs_to :users
+belongs_to :purchases
+
 ## purchases
 |items_name        |string    |foreign_key: true|
 |user              |references|foreign_key: true|
 
-## information
+### Association
+
+belongs_to :items
+belongs_to :informations
+
+## informations
 |number            |string    |null: false      |
 |building          |string    |                 |
 |address           |string    |null: false      |
 |region            |string    |null: false      |
 |prefecture_id     |integer   |null: false      |
 |post              |string    |null: false      |
+
+### Association
+belongs_to :users
+belongs_to :purchases
