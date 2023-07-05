@@ -40,33 +40,33 @@ Things you may want to cover:
 ### Association
 
 has_many :items
-belongs_to :informations
 
 ## items 
 
 |items_name        |string    |null: false      |
 |item_text         |text      |null: false      |
-|category_id       |string    |null: false      |
-|condition_id      |string    |null: false      |
+|category_id       |integer   |null: false      |
+|condition_id      |integer   |null: false      |
 |delivery          |decimal   |null: false      |
 |address           |string    |null: false      |
-|date              |datetime  |null: false      |
+|send              |datetime  |null: false      |
 |price             |integer   |null: false      |
 |user              |references|foreign_key: true|
 
 ### Association
 
 belongs_to :users
-belongs_to :purchases
+has_one :purchase
 
 ## purchases
-|items_name        |string    |foreign_key: true|
+|item        |string    |foreign_key: true|
 |user              |references|foreign_key: true|
 
 ### Association
 
-belongs_to :items
-belongs_to :informations
+belongs_to :item
+has_one :information
+belongs_to :users
 
 ## informations
 |number            |string    |null: false      |
@@ -77,5 +77,5 @@ belongs_to :informations
 |post              |string    |null: false      |
 
 ### Association
-belongs_to :users
-belongs_to :purchases
+belongs_to :user
+belongs_to :purchase
