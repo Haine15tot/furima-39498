@@ -40,7 +40,7 @@ Things you may want to cover:
 ### Association
 
 has_many :items
-has_many:purchase
+has_many:purchases
 
 
 ## items 
@@ -51,9 +51,9 @@ has_many:purchase
 |condition_id      |integer   |null: false                   |
 |delivery_id       |integer   |null: false                   |
 |prefecture_id     |string    |null: false                   |
-|send              |datetime  |null: false                   |
+|send＿id              |datetime  |null: false                   |
 |price             |integer   |null: false                   |
-|user              |string    |null: false, foreign_key: true|
+|user              |references |null: false, foreign_key: true|
 
 ### Association
 
@@ -61,6 +61,8 @@ belongs_to :user
 belongs_to :category, class_name: 'Category', foreign_key: 'category_id'
 belongs_to :condition, class_name: 'Condition', foreign_key: 'condition_id'
 belongs_to :delivery_fee, class_name: 'DeliveryFee', foreign_key: 'delivery_id'
+belongs_to :send, class_name: 'Send', foreign_key: 'send_id'
+belongs_to :purchas
 
 ## purchases
 |item             |references|null: false, foreign_key: true|
@@ -80,8 +82,9 @@ belongs_to :user
 |region            |string    |null: false      |
 |prefecture_id     |integer   |null: false      |
 |post              |string    |null: false      |
+|purchase_id       |integer   |null: false, foreign_key: true|
 
 ### Association
 
 belongs_to :purchase
-belongs_to :prefecture, class_name: 'Prefecture', foreign_key: 'delivery_id'
+belongs_to :prefecture, class_name: 'Prefecture', foreign_key: 'prefecture_id'
