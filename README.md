@@ -40,33 +40,37 @@ Things you may want to cover:
 ### Association
 
 has_many :items
+belongs_to :information
 
 ## items 
 
 |items_name        |string    |null: false      |
 |item_text         |text      |null: false      |
-|category_id       |integer   |null: false      |
-|condition_id      |integer   |null: false      |
-|delivery          |decimal   |null: false      |
+|category          |integer   |null: false      |
+|condition         |integer   |null: false      |
+|delivery_fee      |integer   |null: false      |
 |address           |string    |null: false      |
 |send              |datetime  |null: false      |
 |price             |integer   |null: false      |
-|user              |references|foreign_key: true|
+|user              |          |null: false, foreign_key: true|
 
 ### Association
 
-belongs_to :users
-has_one :purchase
+belongs_to :user
+belongs_to :category, class_name: 'Category', foreign_key: 'category'
+belongs_to :condition, class_name: 'Condition', foreign_key: 'condition'
+belongs_to :delivery_fee, class_name: 'DeliveryFee', foreign_key: 'delivery_fee'
 
 ## purchases
-|item        |string    |foreign_key: true|
-|user              |references|foreign_key: true|
+|items             |string   |null: false, foreign_key: true|
+|user              |references|null: false, foreign_key: true|
 
 ### Association
 
 belongs_to :item
 has_one :information
-belongs_to :users
+belongs_to :user
+
 
 ## informations
 |number            |string    |null: false      |
@@ -77,5 +81,5 @@ belongs_to :users
 |post              |string    |null: false      |
 
 ### Association
-belongs_to :user
+
 belongs_to :purchase

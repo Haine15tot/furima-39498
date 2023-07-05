@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="gBoJ7hBtT0sKkEDqJdW6" name="ページ1">
-        <mxGraphModel dx="929" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1625" dy="1015" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -109,6 +109,41 @@
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="309.57142857142867" y="390.0000000000001" as="targetPoint"/>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="wUsnza_Su9g0cuc0ggVS-124" value="Category" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="630" width="160" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="wUsnza_Su9g0cuc0ggVS-125" value="---&#10;メンズ&#10;レディース&#10;ベビー・キッズ&#10;インテリア・住まい・小物&#10;本・音楽・ゲーム&#10;おもちゃ・ホビー・グッズ&#10;家電・スマホ・カメラ&#10;スポーツ・レジャー&#10;ハンドメイド&#10;その他" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="wUsnza_Su9g0cuc0ggVS-124">
+                    <mxGeometry y="30" width="160" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="wUsnza_Su9g0cuc0ggVS-126" value="Condition" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="652" width="160" height="146" as="geometry"/>
+                </mxCell>
+                <mxCell id="wUsnza_Su9g0cuc0ggVS-127" value="---&#10;新品・未使用&#10;未使用に近い&#10;目立った傷や汚れなし&#10;やや傷や汚れあり&#10;傷や汚れあり&#10;全体的に状態が悪い&#10;&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="wUsnza_Su9g0cuc0ggVS-126">
+                    <mxGeometry y="30" width="160" height="116" as="geometry"/>
+                </mxCell>
+                <mxCell id="wUsnza_Su9g0cuc0ggVS-135" value="DeliveryFee" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="630" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="wUsnza_Su9g0cuc0ggVS-136" value="---&#10;着払い(購入者負担)&#10;送料込み(出品者負担)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontColor=#F0F0F0;" vertex="1" parent="wUsnza_Su9g0cuc0ggVS-135">
+                    <mxGeometry y="30" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="wUsnza_Su9g0cuc0ggVS-137" style="edgeStyle=none;shape=link;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.135;entryY=-0.017;entryDx=0;entryDy=0;entryPerimeter=0;fontColor=#F0F0F0;endArrow=classicThin;endFill=1;" edge="1" parent="1" source="wUsnza_Su9g0cuc0ggVS-90" target="wUsnza_Su9g0cuc0ggVS-124">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="wUsnza_Su9g0cuc0ggVS-138" style="edgeStyle=none;shape=link;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontColor=#F0F0F0;endArrow=classicThin;endFill=1;" edge="1" parent="1" source="wUsnza_Su9g0cuc0ggVS-90">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="650" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="wUsnza_Su9g0cuc0ggVS-139" style="edgeStyle=none;shape=link;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fontColor=#F0F0F0;endArrow=classicThin;endFill=1;" edge="1" parent="1" source="54" target="wUsnza_Su9g0cuc0ggVS-135">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="wUsnza_Su9g0cuc0ggVS-143" value="Entity" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;fontColor=#F0F0F0;" vertex="1" parent="1">
+                    <mxGeometry x="254" y="880" width="160" height="760" as="geometry"/>
+                </mxCell>
+                <mxCell id="wUsnza_Su9g0cuc0ggVS-144" value="北海道　&#10;青森県&#10;岩手県&#10;宮城県&#10;秋田県&#10;山形県&#10;福島県&#10;茨城県&#10;栃木県&#10;群馬県&#10;&#10;埼玉県&#10;千葉県&#10;東京都&#10;神奈川県&#10;新潟県&#10;富山県&#10;石川県&#10;福井県&#10;山梨県&#10;長野県&#10;&#10;岐阜県&#10;静岡県&#10;愛知県&#10;三重県&#10;滋賀県&#10;京都府&#10;大阪府&#10;兵庫県&#10;奈良県&#10;和歌山県&#10;&#10;鳥取県&#10;島根県&#10;岡山県&#10;広島県&#10;山口県&#10;徳島県&#10;香川県&#10;愛媛県&#10;高知県&#10;福岡県&#10;&#10;佐賀県&#10;長崎県&#10;熊本県&#10;大分県&#10;宮崎県&#10;鹿児島県&#10;沖縄県" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;fontColor=#F0F0F0;" vertex="1" parent="wUsnza_Su9g0cuc0ggVS-143">
+                    <mxGeometry y="30" width="160" height="730" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
