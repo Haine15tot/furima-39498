@@ -28,42 +28,43 @@ Things you may want to cover:
 
 ## users
 
-|nickname          |string    |null: false      |
-|email             |string    |unique: true     |
-|encrypted_password|string    |null: false      |
-|birthday          |date      |null: false      |
-|first_name        |string    |null: false      |
-|last_name         |string    |null: false      |
-|c_first_name      |string    |null: false      |
-|c_last_name       |string    |null: false      |
+|nickname          |string    |null: false             |
+|email             |string    |null: false,unique: true|
+|encrypted_password|string    |null: false             |
+|birthday          |date      |null: false             |
+|first_name        |string    |null: false             |
+|last_name         |string    |null: false             |
+|c_first_name      |string    |null: false             |
+|c_last_name       |string    |null: false             |
 
 ### Association
 
 has_many :items
-belongs_to :information
+has_many:purchase
+
 
 ## items 
 
-|items_name        |string    |null: false      |
-|item_text         |text      |null: false      |
-|category          |integer   |null: false      |
-|condition         |integer   |null: false      |
-|delivery_fee      |integer   |null: false      |
-|address           |string    |null: false      |
-|send              |datetime  |null: false      |
-|price             |integer   |null: false      |
-|user              |          |null: false, foreign_key: true|
+|items_name        |string    |null: false                   |
+|item_text         |text      |null: false                   |
+|category_id       |integer   |null: false                   |
+|condition_id      |integer   |null: false                   |
+|delivery_id       |integer   |null: false                   |
+|prefecture_id     |string    |null: false                   |
+|send              |datetime  |null: false                   |
+|price             |integer   |null: false                   |
+|user              |string    |null: false, foreign_key: true|
 
 ### Association
 
 belongs_to :user
-belongs_to :category, class_name: 'Category', foreign_key: 'category'
-belongs_to :condition, class_name: 'Condition', foreign_key: 'condition'
-belongs_to :delivery_fee, class_name: 'DeliveryFee', foreign_key: 'delivery_fee'
+belongs_to :category, class_name: 'Category', foreign_key: 'category_id'
+belongs_to :condition, class_name: 'Condition', foreign_key: 'condition_id'
+belongs_to :delivery_fee, class_name: 'DeliveryFee', foreign_key: 'delivery_id'
 
 ## purchases
-|items             |string   |null: false, foreign_key: true|
-|user              |references|null: false, foreign_key: true|
+|item             |references|null: false, foreign_key: true|
+|user             |references|null: false, foreign_key: true|
 
 ### Association
 
@@ -83,3 +84,4 @@ belongs_to :user
 ### Association
 
 belongs_to :purchase
+belongs_to :prefecture, class_name: 'Prefecture', foreign_key: 'delivery_id'
