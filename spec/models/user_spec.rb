@@ -7,7 +7,8 @@ RSpec.describe User, type: :model do
 
   describe "新規登録/ユーザー情報" do
     context '新規登録できるとき' do
-      it '入力がすべてただしいとき' do
+      it '入力がすべて正しいとき' do
+        expect(@user).to be_valid
       end
     end
     context '新規登録できないとき' do
@@ -53,12 +54,16 @@ RSpec.describe User, type: :model do
       @user.password = 'あいうえおか'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password is invalid. Include both letters and numbers")
-    
-      @user.password = 'aaaaaa'
+    end
+
+    it "パスワードは、半角数字のみではできない" do
+      @user.password = '111111'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password is invalid. Include both letters and numbers")
-    
-      @user.password = '111111'
+    end
+
+    it "パスワードは、半角英字のみではできない" do
+      @user.password = 'aaaaaa'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password is invalid. Include both letters and numbers")
     end
