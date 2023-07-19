@@ -6,6 +6,11 @@ RSpec.describe User, type: :model do
   end
 
   describe "新規登録/ユーザー情報" do
+    context '新規登録できるとき' do
+      it '入力がすべてただしいとき' do
+      end
+    end
+    context '新規登録できないとき' do
     it "ニックネームが必須であること" do
       @user.nickname = ''
       @user.valid?
@@ -46,7 +51,14 @@ RSpec.describe User, type: :model do
 
     it "パスワードは、半角英数字混合での入力が必須であること" do
       @user.password = 'あいうえおか'
-      @user.password_confirmation = @user.password
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password is invalid. Include both letters and numbers")
+    
+      @user.password = 'aaaaaa'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password is invalid. Include both letters and numbers")
+    
+      @user.password = '111111'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password is invalid. Include both letters and numbers")
     end
@@ -58,6 +70,7 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
   end
+end
 
   describe "新規登録/本人情報確認" do
     it "お名前(全角)は、名前が必須であること" do
@@ -88,13 +101,25 @@ RSpec.describe User, type: :model do
       @user.c_first_name = 'aaa'
       @user.valid?
       expect(@user.errors.full_messages).to include("C first name is invalid. Input full-width katakana characters")
+
+      @user.c_first_name = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("C first name is invalid. Input full-width katakana characters")
+
     end
+
+
 
     it "お名前カナ(苗字)は、全角（カタカナ）での入力が必須であること" do
       @user.c_last_name = 'aaa'
       @user.valid?
       expect(@user.errors.full_messages).to include("C last name is invalid. Input full-width katakana characters")
+
+      @user.c_last_name = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("C last name is invalid. Input full-width katakana characters")
     end
+
 
     it "生年月日が必須であること" do
       @user.birthday = ''
