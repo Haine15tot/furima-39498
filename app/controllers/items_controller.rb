@@ -1,10 +1,11 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
   end
 
   def new
     @item = Item.new
-    # Add any additional logic or instance variables you need for the new action here.
   end
 
   def create
@@ -19,6 +20,17 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:image, :items_name, :item_text, :category_id, :condition_id, :send_id, :prefecture_id, :delivery_id, :plice)
+    params.require(:item).permit(:image, :items_name, :item_text, :category_id, :condition_id, :load_id, :prefecture_id, :delivery_id, :price).merge(user_id: current_user.id)
   end
 end
+
+
+
+
+
+
+
+
+
+
+

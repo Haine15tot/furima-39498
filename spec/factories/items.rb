@@ -6,7 +6,7 @@ FactoryBot.define do
     condition_id { 2 }
     delivery_id { 2 }
     prefecture_id { 2 }
-    send_id { 2 }
+    load_id { 2 }
     price { 1000 }
     user { create(:user) }
 

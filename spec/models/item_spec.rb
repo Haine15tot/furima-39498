@@ -53,9 +53,9 @@ RSpec.describe Item, type: :model do
       end
 
       it "配送料の負担の情報が必須であること" do
-        @item.send_id = nil
+        @item.load_id = nil
         @item.valid?
-        expect(@item.errors[:send_id]).to include("can't be blank")
+        expect(@item.errors[:load_id]).to include("can't be blank")
       end
 
       it "発送元の地域の情報が必須であること" do
