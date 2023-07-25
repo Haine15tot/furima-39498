@@ -41,31 +41,31 @@ RSpec.describe Item, type: :model do
       end
 
       it "カテゴリーの情報が必須であること" do
-        @item.category_id = nil
+        @item.category_id = '---'
         @item.valid?
         expect(@item.errors[:category_id]).to include("can't be blank")
       end
 
       it "商品の状態の情報が必須であること" do
-        @item.condition_id = nil
+        @item.condition_id = '---'
         @item.valid?
         expect(@item.errors[:condition_id]).to include("can't be blank")
       end
 
       it "配送料の負担の情報が必須であること" do
-        @item.load_id = nil
+        @item.load_id = '---'
         @item.valid?
         expect(@item.errors[:load_id]).to include("can't be blank")
       end
 
       it "発送元の地域の情報が必須であること" do
-        @item.prefecture_id = nil
+        @item.prefecture_id = '---'
         @item.valid?
         expect(@item.errors[:prefecture_id]).to include("can't be blank")
       end
 
       it "発送までの日数の情報が必須であること" do
-        @item.delivery_id = nil
+        @item.delivery_id = '---'
         @item.valid?
         expect(@item.errors[:delivery_id]).to include("can't be blank")
       end
@@ -91,6 +91,12 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors[:price]).to include("Price is invalid. Input half-width characters", "Price is out of setting range")
       end
-    end
+
+      it "userが紐づいていない時は保存されない" do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors[:user]).to include("must exist")
+      end
+      end
   end
 end
