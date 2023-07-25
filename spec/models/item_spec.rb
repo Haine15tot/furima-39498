@@ -41,31 +41,31 @@ RSpec.describe Item, type: :model do
       end
 
       it "カテゴリーの情報が必須であること" do
-        @item.category_id = '---'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors[:category_id]).to include("can't be blank")
       end
 
       it "商品の状態の情報が必須であること" do
-        @item.condition_id = '---'
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors[:condition_id]).to include("can't be blank")
       end
 
       it "配送料の負担の情報が必須であること" do
-        @item.load_id = '---'
+        @item.load_id = 1
         @item.valid?
         expect(@item.errors[:load_id]).to include("can't be blank")
       end
 
       it "発送元の地域の情報が必須であること" do
-        @item.prefecture_id = '---'
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors[:prefecture_id]).to include("can't be blank")
       end
 
       it "発送までの日数の情報が必須であること" do
-        @item.delivery_id = '---'
+        @item.delivery_id = 1
         @item.valid?
         expect(@item.errors[:delivery_id]).to include("can't be blank")
       end
